@@ -28,7 +28,7 @@ const OtpPage = () => {
     }
   return (
     <div className=" m-9 p-6 flex items-center justify-center">
-      <div className="mt-20 rounded w-full max-w-sm text-center flex gap-7 flex-col justify-center items-center">
+      <div className="mt-20 w-full max-w-sm text-center flex gap-7 flex-col justify-center items-center">
         <img src={icon} alt="" className='h-12'/>
         <div className='flex flex-col gap-0'>
             <h2 className="text-2xl font-bold">Vérification OTP</h2>
