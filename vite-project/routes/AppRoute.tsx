@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import SignupPage from '../pages/SignupPage';
 import OtpPage from '../pages/OtpPage';
-//import OtpPage from '../pages/OtpPage';
 //import FinalizePage from '../pages/FinalizePage';
 
 export default function AppRoutes() {
