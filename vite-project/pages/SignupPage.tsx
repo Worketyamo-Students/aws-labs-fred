@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import icon from '../public/Clip path group.svg'
+import icon from '../src/assets/Clip path group.svg'
 
   const SignupPage = () => {
   const [email, setEmail] = useState('');
@@ -14,11 +14,10 @@ import icon from '../public/Clip path group.svg'
     console.log('Email:', email);
     console.log('Password:', password);
     navigate('/otp', { state: { email } });
-    // Appeler ici une API pour envoyer les infos ou passer à l'étape OTP
   };
 
   return (
-    <div className="flex items-center justify-center m-5 p-5">
+    <div className="flex flex-col items-center justify-center m-5 p-5">
       <form
         onSubmit={handleSubmit}
         className=" p-8 w-full flex justify-center gap-9 items-center flex-col"
@@ -26,7 +25,7 @@ import icon from '../public/Clip path group.svg'
         <img src={icon} alt="" className='h-10' />
         <div className='flex flex-col items-center justify-center w-full '>
             <h2 className="text-2xl font-bold ">Creation de compte</h2>
-            <p className='text-[15px] text-gray-500'>Rentree vos informations pour créer votre compte</p>
+            <p className='text-[15px] text-gray-500 text-center'>Rentree vos informations pour créer votre compte</p>
         </div>
         <div>
             <label htmlFor="" className='font-bold'>Email</label>
@@ -63,10 +62,19 @@ import icon from '../public/Clip path group.svg'
                 >
                 Créer le compte
             </button>
+
+            <div className='flex items-center justify-center text-center'>
+                <p className='text-gray-500'>By clicking continue you agree to our <span className='underline cursor-pointer'>Terms of Service</span> and <span className='underline cursor-pointer'>Privacy Plolicy</span></p>
+            </div>
         </div>
         </div>
-      
       </form>
+       <div className='flex items-centerh-20 w-full justify-center m-4 p-3 gap-2'>
+        <div className='h-[5px] w-1/4 rounded-2xl bg-orange-300'></div>
+        <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>
+        <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>
+        <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>
+      </div>
     </div>
   );
 };
