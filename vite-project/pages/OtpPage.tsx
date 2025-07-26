@@ -54,7 +54,7 @@ const OtpPage = () => {
         >
           Creer le compte
         </button>
-         <div className='flex items-center justify-center text-center'>
+         <div className='flex items-center justify-center text-center w-80'>
                 <p className='text-gray-500'>By clicking continue you agree to our <span className='underline cursor-pointer'>Terms of Service</span> and <span className='underline cursor-pointer'>Privacy Plolicy</span></p>
          </div>
 

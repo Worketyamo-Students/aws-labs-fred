@@ -69,7 +69,7 @@ const FinalisationPage = () => {
         >
           Finaliser
         </button>
-        <div className='flex w-90 m-8 items-center justify-center text-center'>
+        <div className='flex w-80 m-8 items-center justify-center text-center'>
             <p className='text-gray-500'>By clicking continue you agree to our <span className='underline cursor-pointer'>Terms of Service</span> and <span className='underline cursor-pointer'>Privacy Plolicy</span></p>
         </div>
         <div className='mt-15 flex w-90 items-centerh-20 justify-center m-4 p-3 gap-2'>
