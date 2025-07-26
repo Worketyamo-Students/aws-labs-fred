@@ -31,7 +31,7 @@ const FinalisationPage = () => {
         </div>        <input
           name="firstName"
           type="text"
-          placeholder="Prénom"
+          placeholder="Numero whatsapp"
           value={formData.firstName}
           onChange={handleChange}
           className="border-2 p-2 w-90 mb-4 rounded-md border-gray-200 bg-gray-100 outline-none"
@@ -40,7 +40,7 @@ const FinalisationPage = () => {
         <input
           name="lastName"
           type="text"
-          placeholder="Nom"
+          placeholder="Numero whatsapp"
           value={formData.lastName}
           onChange={handleChange}
           className="border-2 p-2 w-90 mb-4 rounded-md border-gray-200 bg-gray-100 outline-none"
@@ -49,7 +49,7 @@ const FinalisationPage = () => {
         <input
           name="username"
           type="text"
-          placeholder="Nom d'utilisateur"
+          placeholder="Numero whatsapp"
           value={formData.username}
           onChange={handleChange}
           className="border-2 p-2 w-90 mb-4 rounded-md border-gray-200 bg-gray-100 outline-none"
@@ -58,7 +58,7 @@ const FinalisationPage = () => {
         <input
           name="password"
           type="password"
-          placeholder="Mot de passe"
+          placeholder="Numero whatsapp"
           value={formData.password}
           onChange={handleChange}
           className="border-2 p-2 w-90 mb-4 rounded-md border-gray-200 bg-gray-100 outline-none"
@@ -72,7 +72,7 @@ const FinalisationPage = () => {
         <div className='flex w-90 m-8 items-center justify-center text-center'>
             <p className='text-gray-500'>By clicking continue you agree to our <span className='underline cursor-pointer'>Terms of Service</span> and <span className='underline cursor-pointer'>Privacy Plolicy</span></p>
         </div>
-        <div className='mt-20 flex w-90 items-centerh-20 justify-center m-4 p-3 gap-2'>
+        <div className='mt-15 flex w-90 items-centerh-20 justify-center m-4 p-3 gap-2'>
             <div className='h-[5px] w-1/4 rounded-2xl bg-orange-300'></div>
             <div className='h-[5px] w-1/4 rounded-2xl bg-orange-400'></div>
             <div className='h-[5px] w-1/4 rounded-2xl bg-gradient-to-r from-orange-400 to-blue-950 from-5%'></div>

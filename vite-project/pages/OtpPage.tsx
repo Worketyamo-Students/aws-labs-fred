@@ -58,7 +58,7 @@ const OtpPage = () => {
                 <p className='text-gray-500'>By clicking continue you agree to our <span className='underline cursor-pointer'>Terms of Service</span> and <span className='underline cursor-pointer'>Privacy Plolicy</span></p>
          </div>
 
-        <div className='mt-50 flex items-centerh-20 w-full justify-center m-4 p-3 gap-2'>
+        <div className='mt-60 flex items-centerh-20 w-full justify-center m-4 p-3 gap-2'>
             <div className='h-[5px] w-1/4 rounded-2xl bg-orange-300'></div>
             <div className='h-[5px] w-1/4 rounded-2xl bg-orange-400'></div>
             <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>
