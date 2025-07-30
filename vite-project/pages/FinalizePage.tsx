@@ -7,7 +7,6 @@ import logo from '../src/assets/logo (1) 1.svg'
 const FinalisationPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state?.email || '';
 
   const [formData, setFormData] = useState({
     firstName: '',
