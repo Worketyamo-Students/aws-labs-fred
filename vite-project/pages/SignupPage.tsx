@@ -4,33 +4,48 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import icon from '../src/assets/Clip path group.svg'
 import logo from '../src/assets/logo (1) 1.svg'
+import { register } from '../services/api';
 
 
   const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading]   = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+ 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-    navigate('/otp', { state: { email } });
-  };
+    setLoading(true);
 
+    try {
+      const data = { email, password };
+      const res  = await register(data);     // ① j’appelle l’API
+      alert(res.message || 'Inscription réussie !');
+
+      // ② ensuite, je navigue vers la page OTP, en passant l’email
+      navigate('/otp', { state: { email } });
+    } catch (err: any) {
+      //    gestion d’erreur plus robuste
+      const msg = err.response?.data?.message || err.message || 'Erreur inconnue';
+      alert('Erreur : ' + msg);
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
-    <div className='flex justify-center mt-10 w-full -20'>
-        <div className='w-1/3 mt-20 bg-gray-50 rounded-xl p-15 flex flex-col gap-10 '>
-                            <img src={logo} alt="" className='h-15 w-90' />
-                            <div className='flex flex-col'>
-                               <div>
-                                    <div className='flex items-center gap-3'>
-                                        <div className=' border-2 border-gray-300 w-13 h-13 flex justify-center items-center rounded-xl'>
-                                            <svg className='h-6 text-gray-400' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22H18V20C18 18.3431 16.6569 17 15 17H9C7.34315 17 6 18.3431 6 20V22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13ZM12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"></path></svg>
-                                        </div>
-                                        <div>
-                                            <h2 className='font-semibold'>Inscription</h2>
-                                            <p className='text-gray-400'>Entrez vos informations personnelles</p>
+    <div className='flex justify-between w-full '>
+        <div className='w-1/2 bg-gray-50 rounded-xl p-20 flex flex-col gap-10 justify-between sm:hid'>
+            <img src={logo} alt="" className='h-15 w-90' />
+            <div className='flex flex-col'>
+                <div>
+                    <div className='flex items-center gap-3'>
+                         <div className=' border-2 border-gray-300 w-13 h-13 flex justify-center items-center rounded-xl'>
+                                <svg className='h-6 text-gray-400' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22H18V20C18 18.3431 16.6569 17 15 17H9C7.34315 17 6 18.3431 6 20V22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13ZM12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"></path></svg>
+                                </div>
+                                    <div>
+                                         <h2 className='font-semibold'>Inscription</h2>
+                                         <p className='text-gray-400'>Entrez vos informations personnelles</p>
                                         </div>
                                     </div>
                                     <div className='bg-gray-300 h-13 w-[2px] ml-6'></div>
@@ -68,19 +83,19 @@ import logo from '../src/assets/logo (1) 1.svg'
                                     </div>
                                </div>
                             </div>
-                            <div className='flex justify-between items-center mt-20'>
+                            <div className='flex justify-between items-center'>
                                 <div className='flex justify-center items-center gap-2'>
                                     <svg className='h-5 w-5 text-blue-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"></path></svg>
                                     <h1 className='text-blue-700 cursor-pointer'>Vos details</h1>
                                 </div>
                                 <h1 className='text-blue-700 cursor-pointer'>Signin</h1>
                             </div>
-                    </div>
-        <div className="flex flex-col items-center justify-center m-5 p-5 w-1/3">
+        </div>
+        <div className="flex flex-col items-center justify-center m-5 p-5 w-1/2">
         <form
           onSubmit={handleSubmit}
           className=" p-8 flex justify-center gap-9 items-center flex-col"
-        >
+            >
           <img src={icon} alt="" className='h-10' />
           <div className='flex flex-col items-center justify-center'>
               <h2 className="text-2xl font-bold ">Creation de compte</h2>
@@ -118,8 +133,9 @@ import logo from '../src/assets/logo (1) 1.svg'
                   <button
                       type="submit"
                       className="bg-blue-800 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 w-full"
+                      disabled = {loading}
                       >
-                      Créer le compte
+                      {loading ? 'Chargement…' : 'Créer le compte'}
                   </button>
 
                   <div className='flex items-center justify-center text-center w-80'>
@@ -128,7 +144,7 @@ import logo from '../src/assets/logo (1) 1.svg'
               </div>
           </div>
         </form>
-        <div className='flex items-centerh-20 justify-center m-4 mt-20 p-3 gap-2 w-100'>
+        <div className='flex items-centerh-20 justify-center m-4 mt-20 mb-0 p-3 gap-2 w-100'>
           <div className='h-[5px] w-1/4 rounded-2xl bg-orange-300'></div>
           <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>
           <div className='h-[5px] w-1/4 rounded-2xl bg-gray-200'></div>

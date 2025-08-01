@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import icon from '../src/assets/Clip path group.svg'
 import logo from '../src/assets/logo (1) 1.svg'
@@ -6,7 +6,6 @@ import logo from '../src/assets/logo (1) 1.svg'
 
 const FinalisationPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [formData, setFormData] = useState({
     firstName: '',

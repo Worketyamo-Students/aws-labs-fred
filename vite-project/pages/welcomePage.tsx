@@ -1,11 +1,9 @@
-import { useLocation } from 'react-router-dom';
+
 import icon from '../src/assets/Clip path group.svg'
 import img from '../src/assets/images 2.svg'
 import logo from '../src/assets/logo (1) 1.svg'
 
 const WelcomePage = () => {
-  const location = useLocation();
-  const name = location.state?.name || 'Utilisateur';
 
   return (
     <div className='flex justify-center mt-10 w-full'>
